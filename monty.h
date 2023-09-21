@@ -43,7 +43,7 @@ extern stack_t *head;
 typedef void (*op_func)(stack_t **, unsigned int);
 
 
-
+stack_t *head = NULL;
 
 /*======= Stack operations ==========*/
 stack_t *create_node(int n);

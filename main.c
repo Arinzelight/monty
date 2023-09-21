@@ -1,6 +1,4 @@
 #include "monty.h"
-stack_t *head = NULL;
-
 /**
  * main - entry point
  * @argc: arguments count
@@ -56,13 +54,13 @@ void free_nodes(void)
 	}
 }
 
-
 /**
  * enqueue - Enqueues a node in a queue.
  * @new_node: Pointer to the new node to be enqueued.
  * @line_number: Line number (unused) for tracking the opcode.
  */
-void enqueue(stack_t **new_node, __attribute__((unused))unsigned int line_number)
+void enqueue(stack_t **new_node,
+	__attribute__((unused))unsigned int line_number)
 {
 	stack_t *temp;
 
@@ -76,8 +74,6 @@ void enqueue(stack_t **new_node, __attribute__((unused))unsigned int line_number
 	temp = head;
 	while (temp->next != NULL)
 		temp = temp->next;
-
 	temp->next = *new_node;
 	(*new_node)->prev = temp;
-
 }
