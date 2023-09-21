@@ -2,7 +2,6 @@
 
 /**
  * error - Outputs specific error messages based on error codes.
- *
  * @error_code: An integer representing the error code. Possible values:
  *   (1) - Indicates no file provided or more than one file to the program.
  *   (2) - Signifies that the provided file cannot be opened or read.
