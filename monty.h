@@ -69,10 +69,10 @@ void modulus(stack_t **, unsigned int);
 
 /*============ monty operation prototypes ============*/
 void open_file(char *file_name);
-int len_chars(FILE *);
-void find_func(char *, char *, int, int);
 int parse_line(char *buffer, int line_number, int format);
 void read_file(FILE *);
+int len_chars(FILE *);
+void find_func(char *, char *, int, int);
 
 
 
@@ -82,9 +82,10 @@ void print_string(stack_t **, unsigned int);
 void rotl(stack_t **, unsigned int);
 
 /*=========== Error hanlding prototypes ==============*/
-void string_error(int error_code, ...);
-void rotr(stack_t **, unsigned int);
+
 void error(int error_code, ...);
 void handle_error(int error_code, ...);
+void string_error(int error_code, ...);
+void rotr(stack_t **, unsigned int);
 
 #endif
