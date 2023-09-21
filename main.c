@@ -1,5 +1,6 @@
 #include "monty.h"
-#include <stdio.h>
+bus_t monty_state = {NULL, NULL, NULL, 0};
+
 
 /**
 * main - monty code interpreter
