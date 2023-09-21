@@ -67,7 +67,7 @@ void div_nodes(stack_t **, unsigned int);
 void mul(stack_t **, unsigned int);
 void modulus(stack_t **, unsigned int);
 
-/*============ file operation prototypes ============*/
+/*============ monty operation prototypes ============*/
 void open_file(char *file_name);
 int len_chars(FILE *);
 void find_func(char *, char *, int, int);

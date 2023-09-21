@@ -42,16 +42,16 @@ stack_t *create_node(int n)
  */
 void free_nodes(void)
 {
-	stack_t *temp;
+	stack_t *tmp;
 
 	if (head == NULL)
 		return;
 
 	while (head != NULL)
 	{
-		temp = head;
+		tmp = head;
 		head = head->next;
-		free(temp);
+		free(tmp);
 	}
 }
 
