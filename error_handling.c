@@ -1,18 +1,19 @@
 #include "monty.h"
 
 /**
- * err - Prints appropiate error messages determined by their error code.
- * @error_code: The error codes are the following:
- * (1) => The user does not give any file or more than one file to the program.
- * (2) => The file provided is not a file that can be opened or read.
- * (3) => The file provided contains an invalid instruction.
- * (4) => When the program is unable to malloc more memory.
- * (5) => When the parameter passed to the instruction "push" is not an int.
- * (6) => When the stack it empty for pint.
- * (7) => When the stack it empty for pop.
- * (8) => When stack is too short for operation.
+ * err - Outputs specific error messages based on error codes.
+ *
+ * @error_code: An integer representing the error code. Possible values:
+ *   (1) - Indicates no file provided or more than one file to the program.
+ *   (2) - Signifies that the provided file cannot be opened or read.
+ *   (3) - Indicates that the provided file contains an invalid instruction.
+ *   (4) - Denotes a failure to allocate memory (malloc failed).
+ *   (5) - Occurs when the push instruction is given a non-integer parameter.
+ *   (6) - Occurs when attempting to execute pint on an empty stack.
+ *   (7) - Occurs when attempting to execute pop on an empty stack.
+ *   (8) - Indicates that the stack is too short for the intended operation.
  */
-void err(int error_code, ...)
+void error(int error_code, ...)
 {
 	va_list ag;
 	char *op;
@@ -47,14 +48,14 @@ void err(int error_code, ...)
 }
 
 /**
- * more_err - handles errors.
- * @error_code: The error codes are the following:
- * (6) => When the stack it empty for pint.
- * (7) => When the stack it empty for pop.
- * (8) => When stack is too short for operation.
- * (9) => Division by zero.
+ * handle_error - Handles errors and prints corresponding error messages.
+ * @error_code: The error codes and their meanings are as follows:
+ *   (6) => Error: Can't pint, stack is empty.
+ *   (7)  => Error: Can't pop, stack is empty.
+ *   (8)  => Error: Can't perform the operation, stack is too short.
+ *   (9) => Error: Division by zero.
  */
-void more_err(int error_code, ...)
+void handle_error(int error_code, ...)
 {
 	va_list ag;
 	char *op;
@@ -90,10 +91,10 @@ void more_err(int error_code, ...)
 /**
  * string_err - handles errors.
  * @error_code: The error codes are the following:
- * (10) ~> The number inside a node is outside ASCII bounds.
- * (11) ~> The stack is empty.
+ * (10) ~> Error: Can't pchar, value is out of ASCII bounds.
+ * (11) ~> Error: Can't pchar, stack is empty
  */
-void string_err(int error_code, ...)
+void string_error(int error_code, ...)
 {
 	va_list ag;
 	int l_num;

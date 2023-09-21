@@ -1,8 +1,9 @@
 #include "monty.h"
 
 /**
- * open_file - opens a file
- * @file_name: the file namepath
+ * open_file - Opens a file with a specified file path.
+ *
+ * @file_name: The file path or name to be opened.
  * Return: void
  */
 
@@ -11,7 +12,7 @@ void open_file(char *file_name)
 	FILE *fd = fopen(file_name, "r");
 
 	if (file_name == NULL || fd == NULL)
-		err(2, file_name);
+		error(2, file_name);
 
 	read_file(fd);
 	fclose(fd);
@@ -19,24 +20,24 @@ void open_file(char *file_name)
 
 
 /**
- * read_file - reads a file
- * @fd: pointer to file descriptor
+ * read_file - Reads data from a file using a file descriptor.
+ *
+ * @fd: A pointer to the file descriptor.
  * Return: void
  */
 
-void read_file(FILE *fd)
+ void read_file(FILE *fd)
 {
-	int line_number, format = 0;
-	char *buffer = NULL;
-	size_t len = 0;
+        int line_number, format = 0;
+        char *buffer = NULL;
+        size_t len = 0;
 
-	for (line_number = 1; getline(&buffer, &len, fd) != -1; line_number++)
-	{
-		format = parse_line(buffer, line_number, format);
-	}
-	free(buffer);
+        for (line_number = 1; getline(&buffer, &len, fd) != -1; line_number++)
+        {
+                format = parse_line(buffer, line_number, format);
+        }
+        free(buffer);
 }
-
 
 /**
  * parse_line - Separates each line into tokens to determine
@@ -54,7 +55,7 @@ int parse_line(char *buffer, int line_number, int format)
 	const char *delim = "\n ";
 
 	if (buffer == NULL)
-		err(4);
+		error(4);
 
 	opcode = strtok(buffer, delim);
 	if (opcode == NULL)
@@ -115,7 +116,7 @@ void find_func(char *opcode, char *value, int ln, int format)
 		}
 	}
 	if (flag == 1)
-		err(3, ln, opcode);
+		error(4, ln, opcode);
 }
 
 
@@ -143,11 +144,11 @@ void call_fun(op_func func, char *op, char *val, int ln, int format)
 			flag = -1;
 		}
 		if (val == NULL)
-			err(5, ln);
+			error(5, ln);
 		for (i = 0; val[i] != '\0'; i++)
 		{
 			if (isdigit(val[i]) == 0)
-				err(5, ln);
+				error(5, ln);
 		}
 		node = create_node(atoi(val) * flag);
 		if (format == 0)

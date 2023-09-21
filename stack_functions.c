@@ -55,7 +55,7 @@ void pop_func(stack_t **stack, unsigned int line_number)
 	stack_t *temp;
 
 	if (stack == NULL || *stack == NULL)
-		more_err(7, line_number);
+		handle_error(7, line_number);
 
 	temp = *stack;
 	*stack = temp->next;
@@ -72,6 +72,6 @@ void pop_func(stack_t **stack, unsigned int line_number)
 void pint_func(stack_t **stack, unsigned int line_number)
 {
 	if (stack == NULL || *stack == NULL)
-		more_err(6, line_number);
+		handle_error(6, line_number);
 	printf("%d\n", (*stack)->n);
 }
