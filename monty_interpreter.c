@@ -2,7 +2,6 @@
 
 /**
  * open_file - Opens a file with a specified file path.
- *
  * @file_name: The file path or name to be opened.
  * Return: void
  */
@@ -21,7 +20,6 @@ void open_file(char *file_name)
 
 /**
  * read_file - Reads data from a file using a file descriptor.
- *
  * @fd: A pointer to the file descriptor.
  * Return: void
  */

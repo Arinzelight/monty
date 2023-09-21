@@ -88,7 +88,7 @@ void handle_error(int error_code, ...)
 }
 
 /**
- * string_err - handles errors.
+ * string_error - handles errors.
  * @error_code: The error codes are the following:
  * (10) ~> Error: Can't pchar, value is out of ASCII bounds.
  * (11) ~> Error: Can't pchar, stack is empty
