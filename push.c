@@ -28,7 +28,7 @@ void f_push(stack_t **head, unsigned int counter)
 		fclose(monty_state.file);
 		free(monty_state.content);
 		free_stack(*head);
-		exit(EXIT_FAILURE); 
+		exit(EXIT_FAILURE);
 	}
 	n = atoi(monty_state.arg);
 	if (monty_state.lifi == 0)
