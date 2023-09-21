@@ -6,7 +6,8 @@
  * @new_node: Pointer to the new node.
  * @ln: Interger representing the line number of of the opcode.
  */
-void push_func(stack_t **new_node, __attribute__((unused))unsigned int ln)
+void push_func(stack_t **new_node,
+	__attribute__((unused))unsigned int ln)
 {
 	stack_t *temp;
 
@@ -31,16 +32,16 @@ void push_func(stack_t **new_node, __attribute__((unused))unsigned int ln)
  */
 void pall_func(stack_t **stack, unsigned int line_number)
 {
-	stack_t *tmp;
+	stack_t *temp;
 
 	(void) line_number;
 	if (stack == NULL)
 		exit(EXIT_FAILURE);
-	tmp = *stack;
-	while (tmp != NULL)
+	temp = *stack;
+	while (temp != NULL)
 	{
-		printf("%d\n", tmp->n);
-		tmp = tmp->next;
+		printf("%d\n", temp->n);
+		temp = temp->next;
 	}
 }
 
