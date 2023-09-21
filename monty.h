@@ -39,11 +39,12 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-extern stack_t *head;
+
+
 typedef void (*op_func)(stack_t **, unsigned int);
 
+extern stack_t *head;
 
-stack_t *head = NULL;
 
 /*======= Stack operations ==========*/
 stack_t *create_node(int n);

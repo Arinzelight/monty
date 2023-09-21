@@ -1,4 +1,5 @@
 #include "monty.h"
+stack_t *head = NULL;
 /**
  * main - entry point
  * @argc: arguments count
@@ -41,16 +42,16 @@ stack_t *create_node(int n)
  */
 void free_nodes(void)
 {
-	stack_t *tmp;
+	stack_t *temp;
 
 	if (head == NULL)
 		return;
 
 	while (head != NULL)
 	{
-		tmp = head;
+		temp = head;
 		head = head->next;
-		free(tmp);
+		free(temp);
 	}
 }
 
