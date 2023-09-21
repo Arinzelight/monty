@@ -85,19 +85,19 @@ void find_func(char *opcode, char *value, int ln, int format)
 	int flag;
 
 	instruction_t func_list[] = {
-		{"push", add_to_stack},
-		{"pall", print_stack},
-		{"pint", print_top},
-		{"pop", pop_top},
+		{"push", push_func},
+		{"pall", pall_func},
+		{"pint", pint_func},
+		{"pop", pop_func},
 		{"nop", nop},
-		{"swap", swap_nodes},
-		{"add", add_nodes},
+		{"swap", swap},
+		{"add", add},
 		{"sub", sub_nodes},
 		{"div", div_nodes},
-		{"mul", mul_nodes},
-		{"mod", mod_nodes},
+		{"mul", mul},
+		{"mod", modulus},
 		{"pchar", print_char},
-		{"pstr", print_str},
+		{"pstr", print_string},
 		{"rotl", rotl},
 		{"rotr", rotr},
 		{NULL, NULL}
@@ -153,7 +153,7 @@ void call_fun(op_func func, char *op, char *val, int ln, int format)
 		if (format == 0)
 			func(&node, ln);
 		if (format == 1)
-			add_to_queue(&node, ln);
+			enqueue(&node, ln);
 	}
 	else
 		func(&head, ln);

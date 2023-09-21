@@ -19,14 +19,14 @@ void print_char(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * print_str - Prints a string.
+ * print_string - Prints a string from stack.
  * @stack: Pointer to a pointer pointing to top node of the stack.
  * @ln: Interger representing the line number of of the opcode.
  */
-void print_str(stack_t **stack, __attribute__((unused))unsigned int ln)
+void print_string(stack_t **stack, __attribute__((unused))unsigned int ln)
 {
 	int ascii;
-	stack_t *tmp;
+	stack_t *temp;
 
 	if (stack == NULL || *stack == NULL)
 	{
@@ -34,14 +34,14 @@ void print_str(stack_t **stack, __attribute__((unused))unsigned int ln)
 		return;
 	}
 
-	tmp = *stack;
-	while (tmp != NULL)
+	temp = *stack;
+	while (temp != NULL)
 	{
-		ascii = tmp->n;
+		ascii = temp->n;
 		if (ascii <= 0 || ascii > 127)
 			break;
 		printf("%c", ascii);
-		tmp = tmp->next;
+		temp = temp->next;
 	}
 	printf("\n");
 }
@@ -53,17 +53,17 @@ void print_str(stack_t **stack, __attribute__((unused))unsigned int ln)
  */
 void rotl(stack_t **stack, __attribute__((unused))unsigned int ln)
 {
-	stack_t *tmp;
+	stack_t *temp;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 		return;
 
-	tmp = *stack;
-	while (tmp->next != NULL)
-		tmp = tmp->next;
+	temp = *stack;
+	while (temp->next != NULL)
+		temp = temp->next;
 
-	tmp->next = *stack;
-	(*stack)->prev = tmp;
+	temp->next = *stack;
+	(*stack)->prev = temp;
 	*stack = (*stack)->next;
 	(*stack)->prev->next = NULL;
 	(*stack)->prev = NULL;
@@ -77,19 +77,19 @@ void rotl(stack_t **stack, __attribute__((unused))unsigned int ln)
  */
 void rotr(stack_t **stack, __attribute__((unused))unsigned int ln)
 {
-	stack_t *tmp;
+	stack_t *temp;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 		return;
 
-	tmp = *stack;
+	temp = *stack;
 
-	while (tmp->next != NULL)
-		tmp = tmp->next;
+	while (temp->next != NULL)
+		temp = temp->next;
 
-	tmp->next = *stack;
-	tmp->prev->next = NULL;
-	tmp->prev = NULL;
-	(*stack)->prev = tmp;
-	(*stack) = tmp;
+	temp->next = *stack;
+	temp->prev->next = NULL;
+	temp->prev = NULL;
+	(*stack)->prev = temp;
+	(*stack) = temp;
 }

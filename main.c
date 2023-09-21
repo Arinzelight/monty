@@ -58,13 +58,13 @@ void free_nodes(void)
 
 
 /**
- * add_to_queue - Adds a node to the queue.
- * @new_node: Pointer to the new node.
- * @ln: line number of the opcode.
+ * enqueue - Enqueues a node in a queue.
+ * @new_node: Pointer to the new node to be enqueued.
+ * @line_number: Line number (unused) for tracking the opcode.
  */
-void add_to_queue(stack_t **new_node, __attribute__((unused))unsigned int ln)
+void enqueue(stack_t **new_node, __attribute__((unused))unsigned int line_number)
 {
-	stack_t *tmp;
+	stack_t *temp;
 
 	if (new_node == NULL || *new_node == NULL)
 		exit(EXIT_FAILURE);
@@ -73,11 +73,11 @@ void add_to_queue(stack_t **new_node, __attribute__((unused))unsigned int ln)
 		head = *new_node;
 		return;
 	}
-	tmp = head;
-	while (tmp->next != NULL)
-		tmp = tmp->next;
+	temp = head;
+	while (temp->next != NULL)
+		temp = temp->next;
 
-	tmp->next = *new_node;
-	(*new_node)->prev = tmp;
+	temp->next = *new_node;
+	(*new_node)->prev = temp;
 
 }
