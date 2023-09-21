@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * err - Outputs specific error messages based on error codes.
+ * error - Outputs specific error messages based on error codes.
  *
  * @error_code: An integer representing the error code. Possible values:
  *   (1) - Indicates no file provided or more than one file to the program.
@@ -13,7 +13,7 @@
  *   (7) - Occurs when attempting to execute pop on an empty stack.
  *   (8) - Indicates that the stack is too short for the intended operation.
  */
-void err(int error_code, ...)
+void error(int error_code, ...)
 {
 	va_list ag;
 	char *op;
