@@ -13,7 +13,7 @@
  *   (7) - Occurs when attempting to execute pop on an empty stack.
  *   (8) - Indicates that the stack is too short for the intended operation.
  */
-void error(int error_code, ...)
+void err(int error_code, ...)
 {
 	va_list ag;
 	char *op;
