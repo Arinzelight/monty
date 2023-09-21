@@ -26,17 +26,17 @@ void open_file(char *file_name)
  * Return: void
  */
 
- void read_file(FILE *fd)
+void read_file(FILE *fd)
 {
-        int line_number, format = 0;
-        char *buffer = NULL;
-        size_t len = 0;
+	int line_number, format = 0;
+	char *buffer = NULL;
+	size_t len = 0;
 
-        for (line_number = 1; getline(&buffer, &len, fd) != -1; line_number++)
-        {
-                format = parse_line(buffer, line_number, format);
-        }
-        free(buffer);
+	for (line_number = 1; getline(&buffer, &len, fd) != -1; line_number++)
+	{
+		format = parse_line(buffer, line_number, format);
+	}
+	free(buffer);
 }
 
 /**
