@@ -116,7 +116,7 @@ void find_func(char *opcode, char *value, int ln, int format)
 		}
 	}
 	if (flag == 1)
-		error(4, ln, opcode);
+		error(3, ln, opcode);
 }
 
 
